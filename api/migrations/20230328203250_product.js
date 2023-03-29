@@ -16,17 +16,17 @@ exports.up = function(knex) {
     table.text('url').notNullable()
     table.string('name').notNullable()
     table.string('brand').notNullable()
-    
-
-
-
-
-    table.string('name').notNullable()
-    table.string('domain').notNullable().unique()
-    table.string('location').notNullable()
-    table.string('tagline').notNullable()
-    table.string('shipping_info')
-    table.timestamp('dateCreated').notNullable().defaultTo(knex.fn.now())
+    table.string('sku')
+    table.text('description')
+    table.string('price').notNullable()
+    table.text('image')
+    table.string('sizes')
+    table.string('style_id')
+      .references('id')
+      .inTable('style')
+      .notNullable()
+    table.enu('gender', ['Mens', 'Womens', 'Kids']).notNullable()
+    table.timestamp('timestamp').notNullable().defaultTo(knex.fn.now())
     
   })
 };
