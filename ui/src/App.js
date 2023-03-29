@@ -4,6 +4,7 @@ import Home from './views/Home'
 import NotFound from './views/NotFound'
 import Layout from './layouts'
 import ThemeContextProvider from './context/themeContext'
+import ProductDetail from './views/ProductDetail'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}/>
+            <Route path="/product/id/:id" element={<ProductDetail/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Route>
         </Routes>
