@@ -1,0 +1,13 @@
+.homepage-bgimage {
+  background: url('./assets/iStock-1178053903.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
+.header {
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
