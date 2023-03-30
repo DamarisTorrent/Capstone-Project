@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import {Link, useNavigate } from 'react-router-dom'
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 
 
 export default function ProductCard(props) {
@@ -36,9 +37,10 @@ export default function ProductCard(props) {
         />
       </Link>
       <CardContent>
-      <Typography variant="body2" color="text.secondary">
-        {brand}
+        <Typography variant="body2" color="text.secondary">
+         {brand}
         </Typography>
+        <Divider></Divider>
         <Typography gutterBottom variant="h6" component="div">
           {name}
         </Typography>
