@@ -1,16 +1,19 @@
 //The base url of the API, can be changed in the .env file
 const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:9000'
 
-
-
-export const getProducts = async () => {
-
-  const response = await fetch(`${baseUrl}/products/`, { 
-    
+export const getProducts = async (queryObject) => {
+  
+  let brandString = ""
+  
+  if (queryObject.brands.brand.length !== 0) {
+    brandString = queryObject.brands.brand.join()
+  }
+  const response = await fetch(`${baseUrl}/products/?thickness=${encodeURIComponent(queryObject.thickness)}&size=${encodeURIComponent(queryObject.size)}&zipType=${encodeURIComponent(queryObject.zipType)}&price=${queryObject.price}&brands=${encodeURIComponent(brandString)}`, { 
+    method: "GET",
   })
 
   const responseData = await response.json()
-  console.log('responsed data', responseData)
+  // console.log('responsed data', responseData)
 
   if (!response.ok) {
     throw new Error(`Status Code: ${response?.status} - ${responseData?.message}`)
