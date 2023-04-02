@@ -9,7 +9,7 @@ exports.up = function(knex) {
       .primary()
       .unique()
       .notNullable()
-    table.string('name').notNullable()
+    table.string('style_name').notNullable()
     table.string('notes')
     table.timestamp('dateCreated').notNullable().defaultTo(knex.fn.now())
   })

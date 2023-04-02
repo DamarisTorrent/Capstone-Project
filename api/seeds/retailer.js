@@ -8,7 +8,7 @@ exports.seed = async function(knex) {
   await knex('retailer').insert([
     {
       id: "CL1",
-      name: "Cleanline Surf",
+      retailer_name: "Cleanline Surf",
       domain: "https://www.cleanlinesurf.com",
       location: "Seaside, OR",
       tagline: "40 Years of Stoke",
@@ -17,7 +17,7 @@ exports.seed = async function(knex) {
     },
     {
       id: "WO1",
-      name: "Watersports Outlet",
+      retailer_name: "Watersports Outlet",
       domain: "https://www.watersportsoutlet.com",
       location: "Rancho Santa Margarita, CA",
       tagline: "We Are Watersports",
@@ -26,7 +26,7 @@ exports.seed = async function(knex) {
     },
     {
       id: "WW1",
-      name: "Wetsuit Wearhouse",
+      retailer_name: "Wetsuit Wearhouse",
       domain: "https://www.wetsuitwearhouse.com",
       location: "Williamsport, MD",
       tagline: "Over 20,000 wetsuits & accessories in stock today!",

@@ -8,62 +8,62 @@ exports.seed = async function(knex) {
   await knex('style').insert([
     {
       id: 1,
-      name: "2mm",
+      style_name: "2mm",
       notes: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 2,
-      name: "3mm",
+      style_name: "3mm",
       notes: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 3,
-      name: "4mm",
+      style_name: "4mm",
       notes: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 4,
-      name: "5mm",
+      style_name: "5mm",
       notes: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 5,
-      name: "Hoods",
+      style_name: "Hoods",
       notes: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 6,
-      name: "Boots",
+      style_name: "Boots",
       notes: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 7,
-      name: "Gloves",
+      style_name: "Gloves",
       notes: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 8,
-      name: "Long Sleeve Springsuits",
+      style_name: "Long Sleeve Springsuits",
       notes: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 9,
       name: "Short Sleeve Springsuits",
-      notes: "",
+      style_name: "",
       dateCreated: new Date(Date.now())
     },
     {
       id: 10,
       name: "Tops",
-      notes: "",
+      style_name: "",
       dateCreated: new Date(Date.now())
     }
 
