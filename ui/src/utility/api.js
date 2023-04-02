@@ -13,7 +13,7 @@ export const getProducts = async (queryObject) => {
   })
 
   const responseData = await response.json()
-  // console.log('responsed data', responseData)
+  console.log('responsed data', responseData)
 
   if (!response.ok) {
     throw new Error(`Status Code: ${response?.status} - ${responseData?.message}`)

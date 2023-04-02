@@ -119,10 +119,10 @@ function Home() {
                   value={state.thickness}
                   onChange={handleChange}
                 >
-                  <MenuItem value={2}>2mm</MenuItem>
-                  <MenuItem value={3}>3mm</MenuItem>
-                  <MenuItem value={4}>4mm</MenuItem>
-                  <MenuItem value={5}>5mm</MenuItem>
+                  <MenuItem value={"2mm"}>2mm</MenuItem>
+                  <MenuItem value={"3mm"}>3mm</MenuItem>
+                  <MenuItem value={"4mm"}>4mm</MenuItem>
+                  <MenuItem value={"5mm"}>5mm</MenuItem>
                 </Select>
               </FormControl>
               <br></br> <br></br>

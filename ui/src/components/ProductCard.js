@@ -11,13 +11,14 @@ export default function ProductCard(props) {
   const 
   { id,
     name,
-    retailer,
-    url,
+    retailer_name,
     brand, 
     price,
-    size, 
+    sizes, 
     image 
   } = props
+
+  const spacedSizes = sizes.replaceAll(',', ', ')
 
   return (
     
@@ -47,14 +48,14 @@ export default function ProductCard(props) {
           {retailer}
         </Typography> */}
         <Typography variant="body2" color="text.secondary">
-          {retailer}
+          {retailer_name}
         </Typography>
 
         <Typography gutterBottom variant="h6" component="div">
           ${price}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          In Stock Sizes:    {size}
+          In Stock Sizes:    {spacedSizes}
         </Typography>
       </CardContent>
       {/* <CardActions>

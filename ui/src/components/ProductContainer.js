@@ -15,6 +15,7 @@ function ProductContainer(props) {
       .catch((error) => console.log(error))
   }, [queryObject])
   
+  console.log(data)
   // console.log(queryObject.brands.brand.length)
   if (!data) {
     return <>Loading...</>
@@ -28,11 +29,11 @@ function ProductContainer(props) {
           <ProductCard
             id={element.id}
             name={element.name}
-            retailer={element.retailer}
+            retailer_name={element.retailer_name}
             url={element.url}
             brand={element.brand}
             price={element.price}
-            size={element.size}
+            sizes={element.sizes}
             image={element.image}
           ></ProductCard>
         )
