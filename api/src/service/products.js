@@ -29,8 +29,8 @@ exports.showProducts = async (thickness, size, zipType, price, brands) => {
       if (zipType)
         builder.where('name', 'like', `%${zipType}%`)
 
-      // if (size)
-        // builder.where('sizes', 'like', `${size}%`) 
+      if (size)
+        builder.where('sizes', 'like', `${size}%`) 
         // builder.whereRaw(`sizes REGEXP ${size}`)
 
       if (newPrice > 0){

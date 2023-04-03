@@ -71,8 +71,6 @@ function Home() {
     }
   }
 
-  
- 
   return(
     <Fragment>
     
