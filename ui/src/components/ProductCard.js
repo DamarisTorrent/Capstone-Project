@@ -44,9 +44,6 @@ export default function ProductCard(props) {
         <Typography gutterBottom variant="h6" component="div">
           {name}
         </Typography>
-        {/* <Typography variant="body2" color="primary" component={Link} to={url} target="_blank" underline="none">
-          {retailer}
-        </Typography> */}
         <Typography variant="body2" color="text.secondary">
           {retailer_name}
         </Typography>
@@ -58,10 +55,6 @@ export default function ProductCard(props) {
           In Stock Sizes:    {spacedSizes}
         </Typography>
       </CardContent>
-      {/* <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions> */}
     </Card>
     
   )

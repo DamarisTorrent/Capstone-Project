@@ -21,9 +21,11 @@ export const getProducts = async (queryObject) => {
 
   return responseData
 }
-export const getQuestion = async (difficulty, category) => {
 
-  const response = await fetch(`${baseUrl}/questions/random?difficulty=${encodeURIComponent(difficulty)}&category=${encodeURIComponent(category)}`, { // using a query string
+export const getProductDetail = async (id) => {
+
+  console.log('in the api', id)
+  const response = await fetch(`${baseUrl}/product/id/${id}}`, { 
     method: "GET",
     
   })

@@ -2,7 +2,7 @@
 [{ 
   "id": 1,
   "name":"Women's Hyperfreak 4/3+ Chest Zip Wetsuit", 
-  "retailer":"Cleanline Surf Shop",
+  "retailer_name":"Cleanline Surf Shop",
   "url":"https://www.cleanlinesurf.com/o-neill-women-s-hyperfreak-4-3-chest-zip-wetsuit.html",
   "brand":"O'neill",
   "price":"349.95",
@@ -12,7 +12,7 @@
 { 
   "id": 2,
   "name": "3/2mm Women's Sisstrevolution 7 SEAS Back Zip Fullsuit", 
-  "retailer":"Wetsuit Wearhouse",
+  "retailer_name":"Wetsuit Wearhouse",
   "url":"https://www.wetsuitwearhouse.com/collections/womens-fullsuit-wetsuits/products/gn07l32f",
   "brand":"Sisstrevolution",
   "price":"130.00",
@@ -22,7 +22,7 @@
 { 
   "id": 3,
   "name": "Women's Furnace 5/4 Hooded Chest Zip Wetsuit", 
-  "retailer":"Cleanline Surf Shop",
+  "retailer_name":"Cleanline Surf Shop",
   "url":"https://www.cleanlinesurf.com/billabong-women-s-furnace-5-4-hooded-chest-zip-wetsuit-abjw200104.html",
   "brand":"Billabong",
   "price":"349.95",
@@ -32,7 +32,7 @@
 { 
   "id": 4,
   "name": "Womens Dawn Patrol Performance 4/3mm Chest Zip Wetsuit", 
-  "retailer":"Watersports Outlet",
+  "retailer_name":"Watersports Outlet",
   "url":"https://www.watersportsoutlet.com/2023-rip-curl-womens-dawn-patrol-performance-43mm-chest-zip-wetsuit-wsmybw-navy-p-42718.html",
   "brand":"Rip Curl",
   "price":"255.95",
@@ -42,7 +42,7 @@
 { 
   "id": 5,
   "name": "Women's Furnace 5/4 Hooded Chest Zip Wetsuit", 
-  "retailer":"Cleanline Surf Shop",
+  "retailer_name":"Cleanline Surf Shop",
   "url":"https://www.cleanlinesurf.com/billabong-women-s-furnace-5-4-hooded-chest-zip-wetsuit-abjw200104.html",
   "brand":"Billabong",
   "price":"349.95",
@@ -52,7 +52,7 @@
 { 
   "id": 6,
   "name": "Womens Dawn Patrol Performance 4/3mm Chest Zip Wetsuit", 
-  "retailer":"Watersports Outlet",
+  "retailer_name":"Watersports Outlet",
   "url":"https://www.watersportsoutlet.com/2023-rip-curl-womens-dawn-patrol-performance-43mm-chest-zip-wetsuit-wsmybw-navy-p-42718.html",
   "brand":"Rip Curl",
   "price":"255.95",
@@ -62,7 +62,7 @@
 { 
   "id": 7,
   "name":"Women's Hyperfreak 4/3+ Chest Zip Wetsuit", 
-  "retailer":"Cleanline Surf Shop",
+  "retailer_name":"Cleanline Surf Shop",
   "url":"https://www.cleanlinesurf.com/o-neill-women-s-hyperfreak-4-3-chest-zip-wetsuit.html",
   "brand":"O'neill",
   "price":"349.95",
@@ -72,7 +72,7 @@
 { 
   "id": 8,
   "name": "3/2mm Women's Sisstrevolution 7 SEAS Back Zip Fullsuit", 
-  "retailer":"Wetsuit Wearhouse",
+  "retailer_name":"Wetsuit Wearhouse",
   "url":"https://www.wetsuitwearhouse.com/collections/womens-fullsuit-wetsuits/products/gn07l32f",
   "brand":"Sisstrevolution",
   "price":"130.00",
