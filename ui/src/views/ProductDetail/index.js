@@ -8,52 +8,65 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { getProductDetail } from "../../utility/api"
 import Button from '@mui/material/Button';
-
+import ProductReviewContainer from "../../components/ProductReviewContainer";
+import Header from "../../layouts/Header";
 
 function ProductDetail() {
   
   const { id }  = useParams()
-console.log('id', id)
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  }));
+  }))
 
   const [data, setData] = useState()
 
-  //Get products from the product table, pass the query object with search parameters
+
   useEffect(() => {
     getProductDetail(id)
       .then(data => setData(data))
       .catch((error) => console.log(error))
   }, [])
   
-  console.log(data)
-  
   if (!data) {
     return <>Loading...</>
   }
   
       return (
+        <>
+        <Header></Header>
         <Box marginTop={5} sx={{ flexGrow: 1 }}>
           <Grid container spacing={3}>
-            <Grid item xs={6}>
-              <Item>
-                <CardMedia
-                  component="img"
-                  sx={{
-                  height: 700,
-                  width: 500,
-                  maxHeight: 560,
-                  maxWidth: 560,
-                  }}
-                  src={data.image}
-                />
-              </Item>
+            <Grid>
+              <Grid item xs={6}>
+                <Item>
+                  {/* The product image */}
+                  <CardMedia
+                    component="img"
+                    sx={{
+                    height: 700,
+                    width: 500,
+                    maxHeight: 560,
+                    maxWidth: 560,
+                    }}
+                    src={data.image}
+                  />
+                </Item>
+              </Grid>
+            
+              <Grid>
+                <Item>
+                  <ProductReviewContainer 
+                    name={data.name}  sx={{marginTop: '20px'}}>
+                  </ProductReviewContainer>
+                </Item>
+              </Grid>
             </Grid>
+            
             <Grid item xs>
               <Item>
                 <Typography gutterBottom variant="h4" component="div">{data.brand}</Typography>
@@ -68,11 +81,11 @@ console.log('id', id)
                 <Button 
                   className="button"
                   variant="contained" 
-                  sx={{marginTop: '10px', width: '90px'}}
+                  sx={{marginTop: '10px', width: '150px'}}
                   href={data.url}
                   target="_blank"
                   >
-                    Shop Now!
+                  Shop Now!
                 </Button>
                 <br></br><br></br>
                 <Typography gutterBottom variant="h5" component="div" sx={{fontWeight: 'bold'}}>{data.retailer_name}</Typography>
@@ -82,8 +95,12 @@ console.log('id', id)
               </Item>
 
             </Grid>
+
+           
           </Grid>
+          
         </Box>
+        </>
       );
 }
 

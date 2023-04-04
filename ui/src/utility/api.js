@@ -40,18 +40,16 @@ export const getProductDetail = async (id) => {
 }
 
 
-export const sendGameResults = async(token, data) => {
+export const saveReview = async(data) => {
 
   console.log('in the ui api', data)
-  const response = await fetch(`${baseUrl}/game/results`, {
+  const response = await fetch(`${baseUrl}/review`, {
     method: "post", 
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
     },
     body: JSON.stringify(data),
   })
-
   const responseData = await response.json()
 
   if (!response.ok) {
