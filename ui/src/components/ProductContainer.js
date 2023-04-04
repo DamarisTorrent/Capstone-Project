@@ -15,8 +15,6 @@ function ProductContainer(props) {
       .catch((error) => console.log(error))
   }, [queryObject])
   
-  console.log(data)
-  // console.log(queryObject.brands.brand.length)
   if (!data) {
     return <>Loading...</>
   }
