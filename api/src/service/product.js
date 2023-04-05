@@ -2,7 +2,6 @@ const knex = require('../knex')
 
 exports.showProductDetail = async (id) => {
   
-  console.log('made it to product detail service', id)
   const result = await knex('product')
     .join('retailer', 'product.retailer_id', '=', 'retailer.id')
    

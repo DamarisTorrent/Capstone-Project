@@ -1,4 +1,4 @@
-const { createReview } = require('../service/review')
+const { createReview, updateReview } = require('../service/review')
 
 exports.addReview = async (req, res) => {
 
@@ -19,5 +19,16 @@ exports.addReview = async (req, res) => {
     console.error(error)
     res.status(500).send("Internal Server Error")
   }
+}
 
+exports.updateReview = async (req, res) => {   
+
+  console.log('in the flag controller', req.params.id)
+  try {
+    const update = await updateReview(req.params.id)
+    return res.json({message: "Review was flagged."})
+
+  } catch (error) {
+    console.log(error)
+  }
 }
