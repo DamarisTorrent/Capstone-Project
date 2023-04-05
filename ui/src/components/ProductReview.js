@@ -9,7 +9,7 @@ export default function ProductReview(props) {
   const { name } = props;
 
   const [open, setOpen] = useState(false);
-
+  console.log(name)
   // Review modal dialog open
   const handleOpen = () => {
     setOpen(true);
@@ -31,7 +31,7 @@ export default function ProductReview(props) {
       >
         Leave a Review!
       </Button>
-      <ReviewModal open={open} handleClose={handleClose} />
+      <ReviewModal open={open} handleClose={handleClose} source="new" />
       <br></br>
       <br></br>
       <Typography gutterBottom variant="h7" component="div">
