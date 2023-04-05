@@ -1,22 +1,21 @@
-import ProductCard from "./ProductCard"
-import { Fragment } from "react"
-import { useState, useEffect } from "react"
-import { getProducts } from "../utility/api"
+import ProductCard from "./ProductCard";
+import { Fragment } from "react";
+import { useState, useEffect } from "react";
+import { getProducts } from "../utility/api";
 
 function ProductContainer(props) {
-  
-  const { queryObject } = props
-  const [data, setData] = useState()
+  const { queryObject } = props;
+  const [data, setData] = useState();
 
   //Get products from the product table, pass the query object with search parameters
   useEffect(() => {
     getProducts(queryObject)
-      .then(data => setData(data))
-      .catch((error) => console.log(error))
-  }, [queryObject])
-  
+      .then((data) => setData(data))
+      .catch((error) => console.log(error));
+  }, [queryObject]);
+
   if (!data) {
-    return <>Loading...</>
+    return <>Loading...</>;
   }
 
   return (
@@ -34,10 +33,10 @@ function ProductContainer(props) {
             sizes={element.sizes}
             image={element.image}
           ></ProductCard>
-        )
+        );
       })}
     </Fragment>
-  )
+  );
 }
 
-export default ProductContainer
+export default ProductContainer;
