@@ -7,6 +7,8 @@ export default function EditProductReview(props) {
 
   const [open, setOpen] = useState(false);
 
+  // Button component that allows user to edit a review, controls a popup review window
+  
   // Review modal dialog open
   const handleOpen = () => {
     setOpen(true);
@@ -28,6 +30,7 @@ export default function EditProductReview(props) {
       >
         Edit Review
       </Button>
+      {/* Call the popup review form */}
       <EditReviewModal
         open={open}
         handleClose={handleClose}

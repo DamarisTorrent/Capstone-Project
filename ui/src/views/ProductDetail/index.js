@@ -58,6 +58,7 @@ function ProductDetail() {
               </Item>
             </Grid>
 
+            {/* The reviews component, if any reviews exist for this product */}
             <Grid>
               <Item>
                 <ProductReview
@@ -66,11 +67,13 @@ function ProductDetail() {
                 ></ProductReview>
               </Item>
               <Item>
+                {/* Display the reviews */}
                 <ReviewsContainer></ReviewsContainer>
               </Item>
             </Grid>
           </Grid>
 
+          {/* The detailed product information */}
           <Grid item xs>
             <Item>
               <Typography gutterBottom variant="h4" component="div">

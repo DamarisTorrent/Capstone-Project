@@ -11,12 +11,10 @@ import { updateReview, deleteReview } from "../utility/api";
 const EditReviewForm = (props) => {
   const {
     id,
-    product_id,
     reviewer_name,
     summary,
     review,
     rating,
-    open,
     handleClose,
   } = props;
 
@@ -28,9 +26,8 @@ const EditReviewForm = (props) => {
   const reviewData = {};
   reviewData.id = id;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async () => {
+    
     //If any of the fields have been changed, populate the reviewData object with the new values,
     //otherwise populate it with the old values
     if (newName === undefined) {
@@ -58,14 +55,22 @@ const EditReviewForm = (props) => {
     }
     // console.log(reviewData.reviewer_name, reviewData.summary, reviewData.review , reviewData.rating)
 
-    updateReview(reviewData);
-    handleClose();
-  };
+    try {
+      await updateReview(reviewData)
+      
+      handleClose()
+      alert('Review updated')
 
-  const handleDelete = (e) => {
-    deleteReview(reviewData.id);
-    handleClose();
-  };
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const handleDelete = async () => {
+    await deleteReview(reviewData.id)
+    handleClose()
+    alert('Review deleted')
+  }
 
   return (
     <Fragment>
@@ -84,11 +89,8 @@ const EditReviewForm = (props) => {
                 label="Name"
                 sx={{ marginBottom: "15px", marginTop: "10px" }}
                 required
-                onChange={(reviewer_name) =>
-                  setNewName(reviewer_name.target.value)
-                }
+                onChange={(reviewer_name) => setNewName(reviewer_name.target.value)}
                 defaultValue={reviewer_name}
-                helperText="Change your name."
               />
 
               <TextField
@@ -98,7 +100,6 @@ const EditReviewForm = (props) => {
                 required
                 onChange={(summary) => setNewSummary(summary.target.value)}
                 defaultValue={summary}
-                helperText="Change your summary."
               />
 
               <TextField
@@ -109,7 +110,6 @@ const EditReviewForm = (props) => {
                 rows={5}
                 onChange={(review) => setNewReview(review.target.value)}
                 defaultValue={review}
-                helperText="Change your review"
               />
 
               <br></br>
@@ -118,9 +118,7 @@ const EditReviewForm = (props) => {
                 defaultValue={rating}
                 label=""
                 required
-                onChange={(event, rating) => {
-                  setNewRating(rating);
-                }}
+                onChange={(event, rating) => {setNewRating(rating)}}
               />
             </Grid>
           </CardContent>

@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import { saveReview } from "../utility/api";
 
-
 const ReviewForm = ({ handleClose }) => {
   const { id } = useParams();
 
@@ -26,12 +25,15 @@ const ReviewForm = ({ handleClose }) => {
     product_id: id,
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    try {
+      await saveReview(reviewData)
 
-    saveReview(reviewData);
-    handleClose();
-  };
+      handleClose()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <Fragment>
@@ -83,7 +85,7 @@ const ReviewForm = ({ handleClose }) => {
                 label=""
                 required
                 onChange={(event, rating) => {
-                  setRating(rating)
+                  setRating(rating);
                 }}
               />
             </Grid>
@@ -110,7 +112,7 @@ const ReviewForm = ({ handleClose }) => {
         </Button>
       </Grid>
     </Fragment>
-  )
-}
+  );
+};
 
 export default ReviewForm;

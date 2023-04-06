@@ -15,6 +15,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+import Typography from "@mui/material/Typography";
 import { displayBrands } from "../../utility/utils";
 import { displaySizes } from "../../utility/utils";
 
@@ -43,17 +44,17 @@ function Home() {
 
   //Event handler for all changes with the exception of the brand checkbox event
   const handleChange = (event) => {
-    const value = event.target.value
+    const value = event.target.value;
     setState({
       ...state,
       [event.target.name]: value,
-    })
-  }
+    });
+  };
 
   //Event handler for brand checkbox, returns an array of brands
   const handleBrandChange = (event) => {
-    const { value, checked } = event.target
-    const { brand } = brands
+    const { value, checked } = event.target;
+    const { brand } = brands;
 
     if (checked) {
       setBrands({
@@ -62,23 +63,35 @@ function Home() {
     } else {
       setBrands({
         brand: brand.filter((e) => e !== value),
-      })
+      });
     }
-  }
+  };
 
   return (
     <Fragment>
       {/* The background image for the homepage */}
       <div className="container homepage-bgimage">
-        <span>
-          <h2 className="header">
+        <Typography
+          align="center"
+          fontSize="50px"
+          fontWeight="bold"
+          color="#FDFEFF"
+        >
+          THE BEST WOMEN'S WETSUITS. THE BEST ONLINE RETAILERS. ALL IN ONE
+          PLACE.
+        </Typography>
+        {/* <span>
+          <h1 >
             THE BEST WOMEN'S WETSUITS. THE BEST ONLINE RETAILERS. ALL IN ONE
             PLACE.
-          </h2>
-        </span>
+          </h1>
+        </span> */}
       </div>
-      
-      <Grid container marginTop={10}>
+      <br></br>
+      <Typography align="center" fontSize="32px" fontWeight="bold">
+        CHOOSE YOUR STYLE. PICK YOUR BRAND. FIND THE BEST PRICE.
+      </Typography>
+      <Grid container marginTop={5}>
         <Grid>
           <Fragment>
             <Container maxWidth="sm">
@@ -213,9 +226,8 @@ function Home() {
         {/* The component that loads all wetsuit product cards */}
         <ProductContainer queryObject={queryObject}></ProductContainer>
       </Grid>
-      
     </Fragment>
-  )
+  );
 }
 
 export default Home;

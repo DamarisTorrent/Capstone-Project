@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
 import { Fragment } from "react";
-import FormGroup from "@mui/material/FormGroup";
 import EditProductReview from "./EditProductReview";
 
 export default function ReviewsContainer() {
@@ -20,8 +19,7 @@ export default function ReviewsContainer() {
     getReviews(id)
       .then((data) => setData(data))
       .catch((error) => console.log(error));
-  }, []);
-  console.log("data in the reviews container", data);
+  }, [])
 
   if (!data) {
     return <>Loading Reviews...</>;
@@ -38,7 +36,6 @@ export default function ReviewsContainer() {
                 maxWidth: 400,
                 margin: "0 auto",
                 marginTop:"15px",
-                
               }}
             >
               <CardContent>
@@ -73,6 +70,7 @@ export default function ReviewsContainer() {
                   }}
                 >
                   <br></br>
+                  {/* The Edit Review Button  */}
                   <EditProductReview
                     id={element.id}
                     product_id={element.product_id}
@@ -80,10 +78,9 @@ export default function ReviewsContainer() {
                     summary={element.summary}
                     review={element.review}
                     rating={element.rating}
+                    
                   ></EditProductReview>
                 </Box>
-                <br></br>
-                <FormGroup></FormGroup>
               </CardContent>
             </Card>
           )

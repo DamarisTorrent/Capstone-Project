@@ -79,9 +79,10 @@ export const saveReview = async (data) => {
     body: JSON.stringify(data),
   });
   const responseData = await response.json();
-
+ 
   if (!response.ok) {
     throw new Error(
+      alert(responseData?.message)
       `Status Code: ${response?.status} - ${responseData?.message}`
     );
   }
@@ -103,7 +104,10 @@ export const updateReview = async(data) => {
 
 
   if (!response.ok) {
-    throw new Error(`Status Code: ${response?.status} - ${responseData?.message}`)
+    throw new Error(
+      alert(responseData?.message)
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
   }
   
   return responseData

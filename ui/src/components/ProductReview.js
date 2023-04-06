@@ -5,19 +5,19 @@ import { useState } from "react";
 
 export default function ProductReview(props) {
  
-  const { name } = props;
+  const { name } = props
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
  
   // Review modal dialog open
   const handleOpen = () => {
-    setOpen(true);
+    setOpen(true)
   };
 
   // Review modal dialog close
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <>
@@ -30,7 +30,7 @@ export default function ProductReview(props) {
       >
         Leave a Review!
       </Button>
-      <ReviewModal open={open} handleClose={handleClose} source="new" />
+      <ReviewModal open={open} handleClose={handleClose} />
       <br></br>
       <br></br>
       <Typography gutterBottom variant="h7" component="div">

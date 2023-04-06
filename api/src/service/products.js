@@ -55,6 +55,7 @@ exports.showProducts = async (thickness, size, zipType, price, brands) => {
         }    
       }
     })
+    // .orderByRaw('RAND()')
   
   return result
   }

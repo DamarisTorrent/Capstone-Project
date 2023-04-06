@@ -12,7 +12,8 @@ exports.addReview = async (req, res) => {
     }
 
     const result = await createReview(review)
-    
+    return res.json({message: "Review successfully submitted."})
+
     res.json(result)
 
   } catch (error) {
@@ -26,6 +27,13 @@ exports.updateReview = async (req, res) => {
   const review = req.body
   
   try {
+
+    if (!review.reviewer_name  || !review.summary || !review.review || ! review.rating) {
+      console.log('error')
+      return res.status(406).json({message: "All fields are required for a review."})
+    }
+
+    
     const update = await updateReview(review)
     return res.json({message: "Review was updated."})
 
