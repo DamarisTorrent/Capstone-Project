@@ -4,7 +4,6 @@ exports.getReviews = async (req, res) => {
  
   try {
    
-    console.log('reviews controller', req.params.id)
     const reviews = await showReviews(req.params.id)
     
     res.json(reviews)

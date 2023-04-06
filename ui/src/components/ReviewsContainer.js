@@ -8,25 +8,20 @@ import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
 import { Fragment } from "react";
-import FormGroup from '@mui/material/FormGroup';
-import TextField from "@mui/material/TextField";
+import FormGroup from "@mui/material/FormGroup";
 import EditProductReview from "./EditProductReview";
 
 export default function ReviewsContainer() {
-  
-  const [data, setData] = useState()
-  const [disable, setDisable] = useState(true)
-  const [newReview, setNewReview] = useState()
-  const [reviewId, setReviewId]= useState()
-  
-  const { id } = useParams()
- 
+  const [data, setData] = useState();
+
+  const { id } = useParams();
+
   useEffect(() => {
     getReviews(id)
       .then((data) => setData(data))
       .catch((error) => console.log(error));
-  }, [])
-console.log('data in the reviews container', data)
+  }, []);
+  console.log("data in the reviews container", data);
 
   if (!data) {
     return <>Loading Reviews...</>;
@@ -34,65 +29,66 @@ console.log('data in the reviews container', data)
 
   return (
     <Fragment>
-    <Box>
-      {data.map((element) => {
-        return (
-          <Card
-            raised
-            sx={{
-              maxWidth: 400,
-              margin: "0 auto",
-              padding: "0.1em",
-            }}
-          >
-            <CardContent>
-              <Typography gutterBottom variant="h6">{element.summary}</Typography>
-              <Rating name="read-only" value={element.rating} readOnly />
-              <Divider></Divider>
-              <TextField  defaultValue={element.review} 
-              disabled={disable}
-            ></TextField>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
+      <Box>
+        {data.map((element) => {
+          return (
+            <Card
+              raised
+              sx={{
+                maxWidth: 400,
+                margin: "0 auto",
+                marginTop:"15px",
+                
+              }}
+            >
+              <CardContent>
+                <Typography gutterBottom variant="h6" value={element.summary}>
+                  {element.summary}
+                </Typography>
+                <Rating name="read-only" value={element.rating} readOnly />
+                <Divider></Divider>
                 <br></br>
-                <Typography variant="body2" color="text.secondary">Review by:  </Typography>
-                <Typography variant="body2">{element.reviewer_name}</Typography>
-              </Box>
+                <Typography variant="body1" color="text.secondary" value={element.review}>
+                  {element.review}
+                </Typography>
+                <br></br>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                  }}
+                >
+                  <Typography variant="body2" color="text.secondary">
+                    Review by:
+                  </Typography>
+                  <Typography variant="body2" value={element.reviewer_name}>
+                    {element.reviewer_name}
+                  </Typography>
+                </Box>
 
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                  }}
+                >
+                  <br></br>
+                  <EditProductReview
+                    id={element.id}
+                    product_id={element.product_id}
+                    reviewer_name={element.reviewer_name}
+                    summary={element.summary}
+                    review={element.review}
+                    rating={element.rating}
+                  ></EditProductReview>
+                </Box>
                 <br></br>
-                <EditProductReview
-                  // id={element.id}
-                  // product_id={element.product_id}
-                  // reviewer_name={element.reviewer_name}
-                  // summary={element.summary}
-                  // review={element.review}
-                  // rating={element.rating}
-                ></EditProductReview>
-              </Box>
-              <br></br>
-              <FormGroup>
-              
-    
-    </FormGroup>
-            </CardContent>
-            
-          </Card>
-        );
-      })}
-    </Box>
+                <FormGroup></FormGroup>
+              </CardContent>
+            </Card>
+          )
+        })}
+      </Box>
     </Fragment>
   );
-
-
-    
-    }
+}

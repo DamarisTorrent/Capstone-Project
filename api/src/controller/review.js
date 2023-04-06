@@ -1,4 +1,4 @@
-const { createReview, updateReview } = require('../service/review')
+const { createReview, updateReview, deleteReview } = require('../service/review')
 
 exports.addReview = async (req, res) => {
 
@@ -23,10 +23,22 @@ exports.addReview = async (req, res) => {
 
 exports.updateReview = async (req, res) => {   
 
-  console.log('in the flag controller', req.params.id)
+  const review = req.body
+  
   try {
-    const update = await updateReview(req.params.id)
-    return res.json({message: "Review was flagged."})
+    const update = await updateReview(review)
+    return res.json({message: "Review was updated."})
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+exports.deleteReview = async (req, res) => {   
+  
+  try {
+    const update = await deleteReview(req.params.id)
+    return res.json({message: "Review was deleted."})
 
   } catch (error) {
     console.log(error)

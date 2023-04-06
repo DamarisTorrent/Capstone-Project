@@ -2,9 +2,6 @@ const { showProducts } = require('../service/products')
 
 exports.getProducts = async (req, res) => {
 
-  console.log(req.query)
-
-
   const {
     thickness,
     size,

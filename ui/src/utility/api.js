@@ -1,6 +1,7 @@
 //The base url of the API, can be changed in the .env file
 const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:9000";
 
+//Get all products, if a query object is passed in the products will be searched on query parameters
 export const getProducts = async (queryObject) => {
   let brandString = "";
 
@@ -18,11 +19,10 @@ export const getProducts = async (queryObject) => {
     {
       method: "GET",
     }
-  );
+  )
 
-  const responseData = await response.json();
-  console.log("responsed data", responseData);
-
+  const responseData = await response.json()
+ 
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`
@@ -32,8 +32,9 @@ export const getProducts = async (queryObject) => {
   return responseData;
 };
 
+//Get one product detail with product id
 export const getProductDetail = async (id) => {
-  console.log("in the api", id);
+ 
   const response = await fetch(`${baseUrl}/product/id/${id}}`, {
     method: "GET",
   });
@@ -49,9 +50,10 @@ export const getProductDetail = async (id) => {
   return responseData;
 };
 
+//Get all reviews for a product based on product id
 export const getReviews = async (id) => {
   console.log("in the api", id);
-  const response = await fetch(`${baseUrl}/reviews/id/${id}}`, {
+  const response = await fetch(`${baseUrl}/reviews/id/${id}`, {
     method: "GET",
   });
 
@@ -66,10 +68,11 @@ export const getReviews = async (id) => {
   return responseData;
 };
 
+//Save a new product review
 export const saveReview = async (data) => {
-  console.log("in the ui api", data);
+  
   const response = await fetch(`${baseUrl}/review`, {
-    method: "post",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
@@ -86,17 +89,18 @@ export const saveReview = async (data) => {
   return responseData;
 }
 
-export const updateReview = async(id) => {
-
-  const response = await fetch(`${baseUrl}/review/id/${id}`, {
-    method: "put", 
+//Update a product review based on review id
+export const updateReview = async(data) => {
+  
+  const response = await fetch(`${baseUrl}/review/id/${data.id}`, {
+    method: "PUT",
     headers: {
-      'Content-Type': 'application/json',
-    }
-    
-  })
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const responseData = await response.json();
 
-  const responseData = await response.json()
 
   if (!response.ok) {
     throw new Error(`Status Code: ${response?.status} - ${responseData?.message}`)
@@ -104,3 +108,21 @@ export const updateReview = async(id) => {
   
   return responseData
 }
+
+//Delete a review based on review id
+export const deleteReview = async (id) => {
+ 
+  const response = await fetch(`${baseUrl}/review/id/${id}`, {
+    method: "DELETE",
+  });
+
+  const responseData = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+
+  return responseData;
+};

@@ -28,7 +28,6 @@ const ReviewForm = ({ handleClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, summary, review, rating);
 
     saveReview(reviewData);
     handleClose();
@@ -84,7 +83,7 @@ const ReviewForm = ({ handleClose }) => {
                 label=""
                 required
                 onChange={(event, rating) => {
-                  setRating(rating);
+                  setRating(rating)
                 }}
               />
             </Grid>

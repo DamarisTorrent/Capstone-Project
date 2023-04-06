@@ -2,14 +2,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ReviewModal from "./ReviewModal";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 
 export default function ProductReview(props) {
-  const { id } = useParams();
+ 
   const { name } = props;
 
   const [open, setOpen] = useState(false);
-  console.log(name)
+ 
   // Review modal dialog open
   const handleOpen = () => {
     setOpen(true);

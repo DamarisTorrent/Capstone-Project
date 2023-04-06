@@ -2,10 +2,11 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import logo from '../assets/logo.png'
 
 export default function Header() {
   
-  console.log('this is the url', window.location.href)
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -20,6 +21,7 @@ export default function Header() {
           >
             withrubber.com
           </Typography>
+         
           {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />

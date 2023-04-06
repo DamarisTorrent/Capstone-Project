@@ -5,33 +5,65 @@ import Grid from "@mui/material/Grid";
 import { Fragment } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { useParams } from "react-router-dom";
 import Rating from "@mui/material/Rating";
-import { saveReview } from "../utility/api";
+import { updateReview, deleteReview } from "../utility/api";
 
+const EditReviewForm = (props) => {
+  const {
+    id,
+    product_id,
+    reviewer_name,
+    summary,
+    review,
+    rating,
+    open,
+    handleClose,
+  } = props;
 
-const EditReviewForm = ({ handleClose, props }) => {
-  const { id } = useParams();
+  const [newName, setNewName] = useState();
+  const [newSummary, setNewSummary] = useState();
+  const [newReview, setNewReview] = useState();
+  const [newRating, setNewRating] = useState();
 
-  const [name, setName] = useState();
-  const [summary, setSummary] = useState();
-  const [review, setReview] = useState();
-  const [rating, setRating] = useState();
-
-  console.log('props in the edit review form', props)
-  const reviewData = {
-    reviewer_name: name,
-    summary: summary,
-    review: review,
-    rating: rating,
-    product_id: id,
-  };
+  const reviewData = {};
+  reviewData.id = id;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, summary, review, rating);
 
-    saveReview(reviewData);
+    //If any of the fields have been changed, populate the reviewData object with the new values,
+    //otherwise populate it with the old values
+    if (newName === undefined) {
+      reviewData.reviewer_name = reviewer_name;
+    } else {
+      reviewData.reviewer_name = newName;
+    }
+
+    if (newSummary === undefined) {
+      reviewData.summary = summary;
+    } else {
+      reviewData.summary = newSummary;
+    }
+
+    if (newReview === undefined) {
+      reviewData.review = review;
+    } else {
+      reviewData.review = newReview;
+    }
+
+    if (newRating === undefined) {
+      reviewData.rating = rating;
+    } else {
+      reviewData.rating = newRating;
+    }
+    // console.log(reviewData.reviewer_name, reviewData.summary, reviewData.review , reviewData.rating)
+
+    updateReview(reviewData);
+    handleClose();
+  };
+
+  const handleDelete = (e) => {
+    deleteReview(reviewData.id);
     handleClose();
   };
 
@@ -52,9 +84,11 @@ const EditReviewForm = ({ handleClose, props }) => {
                 label="Name"
                 sx={{ marginBottom: "15px", marginTop: "10px" }}
                 required
-                onChange={(name) => setName(name.target.value)}
-                value={name}
-                helperText="Please enter your name or nickname."
+                onChange={(reviewer_name) =>
+                  setNewName(reviewer_name.target.value)
+                }
+                defaultValue={reviewer_name}
+                helperText="Change your name."
               />
 
               <TextField
@@ -62,9 +96,9 @@ const EditReviewForm = ({ handleClose, props }) => {
                 label="Summary"
                 sx={{ marginBottom: "5px" }}
                 required
-                onChange={(summary) => setSummary(summary.target.value)}
-                value={summary}
-                helperText="Please provide a short summary."
+                onChange={(summary) => setNewSummary(summary.target.value)}
+                defaultValue={summary}
+                helperText="Change your summary."
               />
 
               <TextField
@@ -73,19 +107,19 @@ const EditReviewForm = ({ handleClose, props }) => {
                 multiline
                 required
                 rows={5}
-                onChange={(review) => setReview(review.target.value)}
-                value={review}
-                helperText="Please tell us what you think about this product."
+                onChange={(review) => setNewReview(review.target.value)}
+                defaultValue={review}
+                helperText="Change your review"
               />
 
               <br></br>
               <Rating
                 name="rating"
-                value={rating}
+                defaultValue={rating}
                 label=""
                 required
                 onChange={(event, rating) => {
-                  setRating(rating);
+                  setNewRating(rating);
                 }}
               />
             </Grid>
@@ -108,20 +142,20 @@ const EditReviewForm = ({ handleClose, props }) => {
           onClick={handleSubmit}
           sx={{ margin: "15px", width: "150px" }}
         >
-         Save Review
+          Save Review
         </Button>
         <Button
           type="submit"
           variant="contained"
           color="primary"
-          onClick={handleSubmit}
+          onClick={handleDelete}
           sx={{ margin: "15px", width: "150px" }}
         >
-         Delete Review
+          Delete Review
         </Button>
       </Grid>
     </Fragment>
-  )
-}
+  );
+};
 
 export default EditReviewForm;

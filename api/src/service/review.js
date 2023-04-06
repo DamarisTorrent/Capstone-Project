@@ -15,12 +15,25 @@ exports.createReview = async (review) => {
   return 
 }
 
-exports.updateReview = async (id) => {
+exports.updateReview = async (review) => {
 
-  console.log('update Review', id)
   const result = await knex('review')
-    .where('id', id)
-    .update({flagged: true})
+    .where('id', review.id)
+    .update({
+      reviewer_name: review.reviewer_name, 
+      summary: review.summary,
+      review: review.review,
+      rating: review.rating
+    })
+
+  return 
+}
+
+exports.deleteReview = async (id) => {
+
+  const result = await knex('review')
+  .where('id', '=', id)
+  .del()
 
   return 
 }

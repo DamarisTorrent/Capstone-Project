@@ -77,7 +77,7 @@ function Home() {
           </h2>
         </span>
       </div>
-
+      
       <Grid container marginTop={10}>
         <Grid>
           <Fragment>
@@ -213,6 +213,7 @@ function Home() {
         {/* The component that loads all wetsuit product cards */}
         <ProductContainer queryObject={queryObject}></ProductContainer>
       </Grid>
+      
     </Fragment>
   )
 }
