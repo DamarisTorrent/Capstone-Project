@@ -30,6 +30,8 @@ const ReviewForm = ({ handleClose }) => {
       await saveReview(reviewData)
 
       handleClose()
+      alert('Thank you for the review')
+    
     } catch (error) {
       console.error(error)
     }

@@ -132,6 +132,7 @@ function Home() {
                     labelId="thickness-label"
                     name="thickness"
                     label="Thickness"
+                    displayEmpty
                     value={state.thickness}
                     onChange={handleChange}
                   >
@@ -186,6 +187,7 @@ function Home() {
                   }}
                 >
                   <br></br>
+                  <Grid paddingright={10}>
                   <FormControl>
                     <FormLabel id="demo-radio-buttons-group-label">
                       Price
@@ -194,6 +196,7 @@ function Home() {
                       aria-labelledby="demo-radio-buttons-group-label"
                       name="price"
                       onChange={handleChange}
+                      paddingRight={50}
                     >
                       <FormControlLabel
                         value={150}
@@ -217,6 +220,7 @@ function Home() {
                       />
                     </RadioGroup>
                   </FormControl>
+                  </Grid>
                   <br></br>
                 </Box>
               </Box>
