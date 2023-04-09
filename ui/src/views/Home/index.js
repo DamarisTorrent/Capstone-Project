@@ -73,7 +73,7 @@ function Home() {
       <div className="container homepage-bgimage">
         <Typography
           align="center"
-          fontSize="50px"
+          fontSize="60px"
           fontWeight="bold"
           color="#FDFEFF"
         >
@@ -103,6 +103,7 @@ function Home() {
                     border: 1,
                     borderRadius: "16px",
                     color: "gray",
+                    paddingLeft: 2
                   }}
                 >
                   <br></br>
@@ -184,6 +185,7 @@ function Home() {
                     borderRadius: "16px",
                     color: "gray",
                     borderColor: "gray",
+                    paddingLeft: 2
                   }}
                 >
                   <br></br>

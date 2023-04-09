@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 const Layout = (props) => {
-  console.log('layout')
+ 
   return (
     <Fragment>
       {/* <Header></Header> */}

@@ -12,6 +12,9 @@ export const displayBrands = [
   "Roxy",
   "Patagonia",
   "Xcel",
+  "Mystic",
+  "C-Skins",
+  "GUL",
   "Sisstrevolution"
 ]
 

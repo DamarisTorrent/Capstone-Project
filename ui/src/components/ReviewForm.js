@@ -9,13 +9,18 @@ import { useParams } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import { saveReview } from "../utility/api";
 
-const ReviewForm = ({ handleClose }) => {
+const ReviewForm = (props) => {
   const { id } = useParams();
 
-  const [name, setName] = useState();
-  const [summary, setSummary] = useState();
-  const [review, setReview] = useState();
-  const [rating, setRating] = useState();
+  const {
+    handleClose,
+    data
+  } = props 
+
+  const [name, setName] = useState(data?.name);
+  const [summary, setSummary] = useState(data?.summary);
+  const [review, setReview] = useState(data?.review);
+  const [rating, setRating] = useState(data?.rating);
 
   const reviewData = {
     reviewer_name: name,
