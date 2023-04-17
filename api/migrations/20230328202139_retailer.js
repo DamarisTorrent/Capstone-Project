@@ -9,7 +9,7 @@ exports.up = function(knex) {
       .primary()
       .unique()
       .notNullable()
-    table.string('retailer.name').notNullable()
+    table.string('retailer_name').notNullable()
     table.string('domain').notNullable().unique()
     table.string('location').notNullable()
     table.string('tagline').notNullable()
