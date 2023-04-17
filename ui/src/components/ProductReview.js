@@ -17,6 +17,7 @@ export default function ProductReview(props) {
   // Review modal dialog close
   const handleClose = () => {
     setOpen(false)
+    window.location.reload()
   }
 
   return (

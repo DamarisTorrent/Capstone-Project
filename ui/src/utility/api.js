@@ -1,5 +1,8 @@
+
+
 //The base url of the API, can be changed in the .env file
 const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:9000";
+
 
 //Get all products, if a query object is passed in the products will be searched on query parameters
 export const getProducts = async (queryObject) => {
@@ -130,3 +133,21 @@ export const deleteReview = async (id) => {
 
   return responseData;
 };
+
+export const getAdminDetail = async (style, retailer) => {
+ 
+  const response = await fetch(`${baseUrl}/admin?style=${style}&retailer=${retailer}`, {
+    method: "GET",
+  });
+
+  const responseData = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+
+  return responseData;
+};
+

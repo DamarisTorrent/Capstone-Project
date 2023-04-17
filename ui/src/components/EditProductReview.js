@@ -11,13 +11,14 @@ export default function EditProductReview(props) {
   
   // Review modal dialog open
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   // Review modal dialog close
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+    window.location.reload()
+  }
 
   return (
     <>

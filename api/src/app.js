@@ -1,3 +1,4 @@
+
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
@@ -11,6 +12,7 @@ const port = 9000
 app.use(cors())
 app.use(express.json()) // body-parser for parsing requests with application/json header
 app.use(pathLogger)
+
 
 //Defining routes
 router(app)

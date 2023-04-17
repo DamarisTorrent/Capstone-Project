@@ -1,7 +1,9 @@
 const knex = require('../knex')
 
 exports.showProducts = async (thickness, size, zipType, price, brands) => {
-  
+
+  console.log ('size' ,size)
+  console.log ('zipType', zipType)
   //Turn price into a number
   let newPrice = parseInt(price)
   let brandArray = []
@@ -14,22 +16,24 @@ exports.showProducts = async (thickness, size, zipType, price, brands) => {
   //Get all products unless user has passed in search parameters for thickness/style, brands, zipper type, size, and price.
   //Join product table to retailer table to get retailer name
   //Join product table to style table to get style name
+  
+  console.log('thickness', thickness)
   const result = await knex('product')
     .join('retailer', 'product.retailer_id', '=', 'retailer.id')
     .join('style', 'product.style_id', '=', 'style.id')
     .select('product.id', 'product.price', 'product.brand', 'product.image', 'product.name', 'product.sizes', 'product.url', 'retailer.retailer_name', 'style.style_name')
     .where((builder) => {
-      if (thickness)
+      if (thickness && thickness != "all")
     
         builder.where('style_name', thickness)
 
       if (brands)
         builder.whereIn('brand', brandArray)
 
-      if (zipType)
+      if (zipType && zipType != "all")
         builder.where('name', 'like', `%${zipType}%`)
 
-      if (size)
+      if (size && size != 'all')
         builder.where('sizes', 'like', `${size}%`) 
         // builder.whereRaw(`sizes REGEXP ${size}`)
 

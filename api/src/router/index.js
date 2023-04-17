@@ -4,6 +4,7 @@ const products = require('./products')
 const product = require('./product')
 const review = require('./review')
 const reviews = require('./reviews')
+const admin = require('./admin')
 
 const router = (app) => {
 
@@ -12,6 +13,7 @@ const router = (app) => {
   product(app)
   review(app)
   reviews(app)
+  admin(app)
 }
 
 module.exports = router

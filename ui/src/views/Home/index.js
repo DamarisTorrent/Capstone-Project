@@ -19,11 +19,12 @@ import Typography from "@mui/material/Typography";
 import { displayBrands } from "../../utility/utils";
 import { displaySizes } from "../../utility/utils";
 
+
 function Home() {
   //State for the array of brands selected in the brands checkbox list
   const [brands, setBrands] = useState({
     brand: [],
-  });
+  })
 
   //State variables for the other remaining searches
   const [state, setState] = useState({
@@ -31,7 +32,7 @@ function Home() {
     size: "",
     zipType: "",
     price: 0,
-  });
+  })
 
   //An object to contain all of the search parameters
   const queryObject = {
@@ -44,12 +45,13 @@ function Home() {
 
   //Event handler for all changes with the exception of the brand checkbox event
   const handleChange = (event) => {
-    const value = event.target.value;
+    const value = event.target.value
     setState({
       ...state,
       [event.target.name]: value,
-    });
-  };
+    })
+    
+  }
 
   //Event handler for brand checkbox, returns an array of brands
   const handleBrandChange = (event) => {
@@ -59,13 +61,14 @@ function Home() {
     if (checked) {
       setBrands({
         brand: [...brand, value],
-      });
+      })
     } else {
       setBrands({
         brand: brand.filter((e) => e !== value),
       });
     }
-  };
+  
+  }
 
   return (
     <Fragment>
@@ -93,7 +96,7 @@ function Home() {
       </Typography>
       <Grid container marginTop={5}>
         <Grid>
-          <Fragment>
+          
             <Container maxWidth="sm">
               <Box sx={{ minWidth: 120 }}>
                 {/* This is the brand checkbox  */}
@@ -137,6 +140,9 @@ function Home() {
                     value={state.thickness}
                     onChange={handleChange}
                   >
+                    <MenuItem value= {'all'}>All</MenuItem>
+                    <MenuItem value={"Tops"}>Tops</MenuItem>
+                    <MenuItem value={"Springsuits"}>Springsuits</MenuItem>
                     <MenuItem value={"2mm"}>2mm</MenuItem>
                     <MenuItem value={"3mm"}>3mm</MenuItem>
                     <MenuItem value={"4mm"}>4mm</MenuItem>
@@ -151,8 +157,10 @@ function Home() {
                     labelId="size-label"
                     name="size"
                     label="Size"
+                    displayEmpty
                     onChange={handleChange}
                   >
+                     <MenuItem value= {'all'}>All</MenuItem>
                     {/* Map through the array of sizes */}
                     {displaySizes.map((element) => {
                       return <MenuItem value={element}>{element}</MenuItem>;
@@ -170,6 +178,7 @@ function Home() {
                     displayEmpty
                     onChange={handleChange}
                   >
+                    <MenuItem value= {'all'}>All</MenuItem>
                     <MenuItem value={"Chest Zip"}>Chest Zip</MenuItem>
                     <MenuItem value={"Back Zip"}>Back Zip</MenuItem>
                     <MenuItem value={"Hooded"}>Hooded</MenuItem>
@@ -220,14 +229,20 @@ function Home() {
                         control={<Radio />}
                         label="Over $350"
                       />
+                       <FormControlLabel
+                        value={0}
+                        control={<Radio />}
+                        label="All"
+                      />
                     </RadioGroup>
                   </FormControl>
                   </Grid>
                   <br></br>
                 </Box>
               </Box>
+              
             </Container>
-          </Fragment>
+          
         </Grid>
         {/* The component that loads all wetsuit product cards */}
         <ProductContainer queryObject={queryObject}></ProductContainer>
