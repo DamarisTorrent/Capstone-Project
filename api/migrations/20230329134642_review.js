@@ -18,7 +18,7 @@ exports.up = function(knex) {
     table.string('summary').notNullable()
     table.text('review').notNullable()
     table.integer('rating').notNullable()
-    table.integer('helpful_count')
+    // table.integer('helpful_count')
     table.timestamp('dateCreated').notNullable().defaultTo(knex.fn.now())
     
   })

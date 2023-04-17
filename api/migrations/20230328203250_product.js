@@ -26,7 +26,7 @@ exports.up = function(knex) {
       .inTable('style')
       .notNullable()
     table.enu('gender', ['Mens', 'Womens', 'Kids']).notNullable()
-    table.timestamp('timestamp').notNullable().defaultTo(knex.fn.now())
+    // table.timestamp('timestamp').notNullable().defaultTo(knex.fn.now())
     
   })
 };
