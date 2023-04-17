@@ -59,7 +59,6 @@ const EditReviewForm = (props) => {
       await updateReview(reviewData)
       
       handleClose()
-      alert('Review updated')
 
     } catch (error) {
       console.error(error)
@@ -69,7 +68,6 @@ const EditReviewForm = (props) => {
   const handleDelete = async () => {
     await deleteReview(reviewData.id)
     handleClose()
-    alert('Review deleted')
   }
 
   return (
