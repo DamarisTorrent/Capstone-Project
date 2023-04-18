@@ -34,6 +34,7 @@ function Admin() {
     getAdminDetail(state.style, state.retailer)
       .then((data) => setData(data))
       .catch((error) => console.log(error));
+    
   };
 
   return (

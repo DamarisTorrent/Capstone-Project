@@ -1,7 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 
@@ -21,7 +21,7 @@ export default function ProductCard(props) {
         maxHeight: 600
       }}
     >
-      <Link to={`/product/id/${id}`}>
+      <Link to={`/product/id/${id}`} target="_blank">
         <CardMedia
           component="img"
           height="275"
