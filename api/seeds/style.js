@@ -50,14 +50,8 @@ exports.seed = async function(knex) {
     },
     {
       id: 8,
-      style_name: "Long Sleeve Springsuits",
+      style_name: "Springsuits",
       notes: "",
-      dateCreated: new Date(Date.now())
-    },
-    {
-      id: 9,
-      name: "Short Sleeve Springsuits",
-      style_name: "",
       dateCreated: new Date(Date.now())
     },
     {

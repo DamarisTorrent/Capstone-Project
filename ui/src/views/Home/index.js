@@ -131,7 +131,7 @@ function Home() {
                 <br></br> <br></br>
                 {/* This is the thickness select  */}
                 <FormControl fullWidth>
-                  <InputLabel id="thickness-label">Thickness</InputLabel>
+                  <InputLabel id="thickness-label">Style/Thickness</InputLabel>
                   <Select
                     labelId="thickness-label"
                     name="thickness"
@@ -147,6 +147,9 @@ function Home() {
                     <MenuItem value={"3mm"}>3mm</MenuItem>
                     <MenuItem value={"4mm"}>4mm</MenuItem>
                     <MenuItem value={"5mm"}>5mm</MenuItem>
+                    <MenuItem value={"Boots"}>Boots</MenuItem>
+                    <MenuItem value={"Gloves"}>Gloves</MenuItem>
+                    <MenuItem value={"Hoods"}>Hoods</MenuItem>
                   </Select>
                 </FormControl>
                 <br></br> <br></br>
@@ -180,6 +183,7 @@ function Home() {
                   >
                     <MenuItem value= {'all'}>All</MenuItem>
                     <MenuItem value={"Chest Zip"}>Chest Zip</MenuItem>
+                    <MenuItem value={"Zip Free"}>Zip Free</MenuItem>
                     <MenuItem value={"Back Zip"}>Back Zip</MenuItem>
                     <MenuItem value={"Hooded"}>Hooded</MenuItem>
                   </Select>

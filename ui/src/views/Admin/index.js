@@ -56,6 +56,9 @@ function Admin() {
           <MenuItem value={"3mm"}>3mm</MenuItem>
           <MenuItem value={"4mm"}>4mm</MenuItem>
           <MenuItem value={"5mm"}>5mm</MenuItem>
+          <MenuItem value={"boots"}>Boots</MenuItem>
+          <MenuItem value={"hoods"}>Hoods</MenuItem>
+          <MenuItem value={"gloves"}>Gloves</MenuItem>
         </Select>
       </FormControl>
       <br></br>

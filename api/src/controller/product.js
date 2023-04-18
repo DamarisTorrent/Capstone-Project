@@ -4,7 +4,7 @@ exports.getProductDetail = async (req, res) => {
 
   try {
    
-    console.log('the funny product id', req.params.id)
+  
     const productDetail = await showProductDetail(req.params.id)
     
     res.json(productDetail)
