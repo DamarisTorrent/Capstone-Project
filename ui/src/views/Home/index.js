@@ -94,10 +94,17 @@ function Home() {
       <Typography align="center" fontSize="32px" fontWeight="bold">
         CHOOSE YOUR STYLE. PICK YOUR BRAND. FIND THE BEST PRICE.
       </Typography>
-      <Grid container marginTop={5}>
-        <Grid>
-          
-            <Container maxWidth="sm">
+      <Container>
+        <Grid container spacing={4} marginTop={5}>
+            <Grid 
+              className="filter-container" 
+              item 
+              xs={2}
+              container 
+              direction="column"
+              justifyContent="flex-start"
+              alignItems="center"
+              >
               <Box sx={{ minWidth: 120 }}>
                 {/* This is the brand checkbox  */}
                 <Box
@@ -163,7 +170,7 @@ function Home() {
                     displayEmpty
                     onChange={handleChange}
                   >
-                     <MenuItem value= {'all'}>All</MenuItem>
+                      <MenuItem value= {'all'}>All</MenuItem>
                     {/* Map through the array of sizes */}
                     {displaySizes.map((element) => {
                       return <MenuItem value={element}>{element}</MenuItem>;
@@ -233,7 +240,7 @@ function Home() {
                         control={<Radio />}
                         label="Over $350"
                       />
-                       <FormControlLabel
+                        <FormControlLabel
                         value={0}
                         control={<Radio />}
                         label="All"
@@ -244,13 +251,13 @@ function Home() {
                   <br></br>
                 </Box>
               </Box>
-              
-            </Container>
-          
+            </Grid >
+          {/* The component that loads all wetsuit product cards */}
+          <Grid item className="product-container" xs={10}>
+            <ProductContainer queryObject={queryObject}></ProductContainer>
+          </Grid>
         </Grid>
-        {/* The component that loads all wetsuit product cards */}
-        <ProductContainer queryObject={queryObject}></ProductContainer>
-      </Grid>
+      </Container>
     </Fragment>
   );
 }

@@ -2,6 +2,7 @@ import ProductCard from "./ProductCard";
 import { Fragment } from "react";
 import { useState, useEffect } from "react";
 import { getProducts } from "../utility/api";
+import Grid from "@mui/material/Grid";
 
 function ProductContainer(props) {
   const { queryObject } = props;
@@ -19,23 +20,30 @@ function ProductContainer(props) {
   }
 
   return (
-    <Fragment>
+    <Grid   
+      container
+      direction="row"
+      justifyContent="space-evenly"
+      alignItems="stretch"
+    >
       {/* Map through the product array and display product cards */}
       {data.map((element) => {
         return (
-          <ProductCard
-            id={element.id}
-            name={element.name}
-            retailer_name={element.retailer_name}
-            url={element.url}
-            brand={element.brand}
-            price={element.price}
-            sizes={element.sizes}
-            image={element.image}
-          ></ProductCard>
+          <Grid item xs={12} md={6} lg={4}>
+            <ProductCard
+              id={element.id}
+              name={element.name}
+              retailer_name={element.retailer_name}
+              url={element.url}
+              brand={element.brand}
+              price={element.price}
+              sizes={element.sizes}
+              image={element.image}
+            />
+          </Grid>
         );
       })}
-    </Fragment>
+    </Grid>
   );
 }
 

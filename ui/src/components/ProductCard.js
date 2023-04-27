@@ -18,7 +18,7 @@ export default function ProductCard(props) {
         margin: "0 auto",
         padding: "0.1em",
         marginTop:"15px",
-        maxHeight: 600
+        height: 550
       }}
     >
       <Link to={`/product/id/${id}`} target="_blank">
